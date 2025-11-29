@@ -40,5 +40,12 @@ sudo ./scripts/install_all.sh --config configs/local.yml --yes
 Releases & Versioning
 We follow **semantic versioning**. Use conventional commits when contributing; CI enforces commit messages. Merges to `main` trigger release workflow which creates GitHub Releases and tags.
 
+### Prerelease Branches
+The repository supports prerelease branches for testing:
+- **beta** branch: Creates prerelease versions (e.g., `v0.2.0-beta.1`)
+- **alpha** branch: Creates prerelease versions (e.g., `v0.2.0-alpha.1`)
+
+Push commits to these branches to generate prerelease versions before merging to `main` for stable releases.
+
 Contributing
 See CONTRIBUTING.md for branch/PR/release rules and commit message guidelines.
