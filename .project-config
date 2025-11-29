@@ -1,0 +1,8 @@
+# Project-Specific Git Configuration
+project.name=mail-client-installer
+git.author=freddiedfre
+git.email=fredrickanyera@gmail.com
+git.host=github.com
+git.protocol=ssh
+git.signing.enabled=false
+created=2025-11-29T15:53:03+03:00

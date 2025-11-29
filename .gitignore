@@ -1,0 +1,34 @@
+# Build artifacts
+/target/
+/build/
+/dist/
+*.jar
+*.war
+*.zip
+
+# Dependencies
+node_modules/
+vendor/
+.bundle/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Authentication (if any)
+.git/credentials.tmp
