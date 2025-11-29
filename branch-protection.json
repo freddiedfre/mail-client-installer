@@ -8,5 +8,6 @@
     "dismiss_stale_reviews": false,
     "required_approving_review_count": 0
   },
-  "restrictions": null
+  "restrictions": null,
+  "allow_force_pushes": true
 }
