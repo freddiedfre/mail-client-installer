@@ -8,8 +8,8 @@ SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 source "$SCRIPT_DIR/install_common.sh"
 
 CONFIG=${CONFIG:-configs/local.yml}
-DRY_RUN=false
-YES=false
+DRY_RUN=${DRY_RUN:-false}
+YES=${YES:-false}
 
 # parse args
 while [[ "$#" -gt 0 ]]; do
