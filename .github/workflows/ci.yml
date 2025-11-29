@@ -15,10 +15,9 @@ jobs:
         with:
           python-version: '3.x'
       - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@v2
+        uses: azohra/shellcheck-action@v0.8.0
         with:
-          files: |
-            scripts/*.sh
+          path: scripts/*.sh
       - name: Run lint tests
         run: |
           chmod +x tests/lint_tests.sh
