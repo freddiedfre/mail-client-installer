@@ -6,3 +6,8 @@ __pycache__/
 configs/local.yml
 node_modules/
 package-lock.json
+.project-config
+
+# Temporary scripts for history rewriting
+fix-commit-messages.sh
+fix-commit-rebase.sh
