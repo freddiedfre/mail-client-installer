@@ -12,6 +12,8 @@ module.exports = {
   ],
   repositoryUrl: "https://github.com/freddiedfre/mail-client-installer",
   plugins: [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
     ["@semantic-release/changelog", {
       "changelogFile": "CHANGELOG.md"
     }],
