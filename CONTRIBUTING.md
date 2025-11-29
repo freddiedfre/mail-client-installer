@@ -5,7 +5,7 @@ We follow standard GitHub Flow with protected `main` branch. Use feature branche
 ## Commit messages
 Use **conventional commits**. Examples:
 - `feat: add mailspring install option`
-- `fix(install): handle flatpak missing`
+- `fix(install): handle missing Flatpak`
 
 PRs must pass CI and conventional commit linting. Merges to `main` should be squash-merged.
 
