@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.x'
       - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@v1
+        uses: ludeeus/action-shellcheck@v2
         with:
           files: |
             scripts/*.sh
