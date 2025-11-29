@@ -1,5 +1,15 @@
 module.exports = {
-  branches: ["main"],
+  branches: [
+    "main",
+    {
+      name: "beta",
+      prerelease: true
+    },
+    {
+      name: "alpha",
+      prerelease: true
+    }
+  ],
   repositoryUrl: "https://github.com/freddiedfre/mail-client-installer",
   plugins: [
     ["@semantic-release/changelog", {
