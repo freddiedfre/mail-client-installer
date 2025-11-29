@@ -1,0 +1,63 @@
+---
+- name: Install apt packages on Debian/Ubuntu
+  apt:
+    name: '{{ item }}'
+    state: present
+  loop: '{{ mail_clients.linux.enable }}'
+  when:
+    - ansible_facts['os_family'] == 'Debian'
+    - item not in ['mailspring'] # mailspring is handled separately
+
+- name: Handle Mailspring on Linux
+  block:
+    - name: Download Mailspring deb
+      get_url:
+        url: '{{ mail_clients.linux.mailspring.url }}'
+        dest: /tmp/mailspring.deb
+        checksum: '{{ "sha256:" + mail_clients.linux.mailspring.checksum if mail_clients.linux.mailspring.checksum else omit }}'
+      register: mailspring_download
+
+    - name: Install Mailspring deb
+      apt:
+        deb: /tmp/mailspring.deb
+      when: mailspring_download.changed or ansible_check_mode
+  when:
+    - ansible_facts['os_family'] == 'Debian'
+    - "'mailspring' in mail_clients.linux.enable"
+    - mail_clients.linux.mailspring.enabled
+
+- name: Handle Flatpak on Linux
+  block:
+    - name: Install flatpak package
+      apt:
+        name: flatpak
+        state: present
+
+    - name: Add Flathub remote
+      community.general.flatpak_remote:
+        name: flathub
+        state: present
+        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
+
+    - name: Install Thunderbird via Flatpak
+      community.general.flatpak:
+        name: org.mozilla.Thunderbird
+        remote: flathub
+        state: present
+  when:
+    - ansible_facts['os_family'] == 'Debian'
+    - mail_clients.linux.flatpak.enable
+
+- name: Ensure Homebrew and casks on macOS
+  block:
+    - name: Install Homebrew (if missing)
+      raw: '/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+      changed_when: false
+      when: not lookup('command', 'brew', errors='ignore')
+
+    - name: Install macOS casks
+      homebrew_cask:
+        name: '{{ item }}'
+        state: present
+      loop: '{{ mail_clients.macos.enable }}'
+  when: ansible_facts['os_family'] == 'Darwin'
