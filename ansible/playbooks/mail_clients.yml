@@ -1,0 +1,6 @@
+---
+- name: Install mail clients
+  hosts: all
+  become: yes
+  roles:
+    - role: mail_clients

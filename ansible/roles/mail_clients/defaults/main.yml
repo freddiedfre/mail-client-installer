@@ -1,0 +1,17 @@
+---
+# defaults for mail_clients
+mail_clients:
+  linux:
+    enable:
+      - thunderbird
+      - evolution
+    mailspring:
+      enabled: true
+      url: "https://updates.getmailspring.com/download?platform=linuxDeb"
+      checksum: ""
+    flatpak:
+      enable: true
+  macos:
+    enable:
+      - thunderbird
+      - mailspring

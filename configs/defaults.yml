@@ -1,0 +1,58 @@
+# Default declarative configuration for the installer
+# Users may create configs/local.yml to override these values.
+
+global:
+  dry_run: false
+  yes: false
+  log_level: info
+
+linux:
+  # Available options: thunderbird, evolution, kmail, mailspring, mutt, neomutt, alpine
+  enable:
+    - thunderbird
+    - evolution
+    - mutt
+    - neomutt
+    - alpine
+  mailspring:
+    enabled: true
+    url: "https://updates.getmailspring.com/download?platform=linuxDeb"
+    checksum: ""
+  flatpak:
+    enable: true
+
+macos:
+  enable:
+    - thunderbird
+    - mailspring
+    - microsoft-outlook
+    - spark
+    - mimestream
+  brew_taps: []
+  mailspring:
+    enabled: true
+    cask: "mailspring"
+
+clients:
+  thunderbird:
+    linux_pkg: thunderbird
+    macos_cask: thunderbird
+  evolution:
+    linux_pkg: evolution
+  kmail:
+    linux_pkg: kmail
+  mutt:
+    linux_pkg: mutt
+  neomutt:
+    linux_pkg: neomutt
+  alpine:
+    linux_pkg: alpine
+  mailspring:
+    linux_deb: mailspring
+    macos_cask: mailspring
+  microsoft-outlook:
+    macos_cask: microsoft-outlook
+  spark:
+    macos_cask: spark
+  mimestream:
+    macos_cask: mimestream
