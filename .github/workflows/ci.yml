@@ -14,11 +14,13 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+      - name: Install ShellCheck
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y shellcheck
       - name: Run ShellCheck
-        uses: ludeeus/action-shellcheck@v2
-        with:
-          files: |
-            scripts/*.sh
+        run: |
+          shellcheck -x -e SC1091 scripts/*.sh
       - name: Run lint tests
         run: |
           chmod +x tests/lint_tests.sh
